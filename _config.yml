@@ -1,0 +1,27 @@
+title: Sara Fitzgerald
+tagline: "Author of Novels and Non-fiction, telling stories of Little-Known Women"
+description: Award-winning author of biographies and novels of little-known women
+# For the sample on bruce454wilson.github.io this is the repo name.
+# On sarafitzgerald.com it becomes "" (empty).
+baseurl: "/sarafitzgerald-sample"
+url: "https://bruce454wilson.github.io"
+sample: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+plugins:
+  - jekyll-redirect-from
+collections:
+  books:
+    output: true
+include:
+  - _pages
+exclude:
+  - README.md
+  - MAINTENANCE.md
+defaults:
+  - scope: {path: "_pages"}
+    values: {layout: page}

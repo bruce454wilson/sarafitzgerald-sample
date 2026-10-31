@@ -1,0 +1,10 @@
+<form class="contact" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<label>Name <input type="text" name="name" autocomplete="name"></label>
+<label>Email* <input type="email" name="email" required autocomplete="email"></label>
+<label>Message <textarea name="message" rows="5"></textarea></label>
+<label class="check"><input type="checkbox" name="newsletter" value="yes"> Sign up for my email list for updates on my books and other news.</label>
+<button type="submit" class="btn">Send</button>
+{%- if site.sample %}
+<p class="note">(Sample site: this form isn't connected yet.)</p>
+{%- endif %}
+</form>

@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{{ content }}
+<script>
+// Pull the latest posts from Sara's WordPress.com blogs (no copy kept here).
+document.querySelectorAll('.feed').forEach(function(ul){
+  var api='https://public-api.wordpress.com/rest/v1.1/sites/'+ul.dataset.site+'/posts/?number='+ul.dataset.n+'&fields=date,title,URL,excerpt';
+  fetch(api).then(function(r){return r.json()}).then(function(j){
+    ul.innerHTML='';
+    j.posts.forEach(function(p){
+      var tmp=document.createElement('div');tmp.innerHTML=p.excerpt;var ex=tmp.textContent.trim();
+      if(ex.length>140)ex=ex.slice(0,140).replace(/\s+\S*$/,'')+'…';
+      var tt=document.createElement('div');tt.innerHTML=p.title;
+      var li=document.createElement('li');
+      li.innerHTML='<span class="d"></span><a class="t"></a><p></p>';
+      li.querySelector('.d').textContent=new Date(p.date).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+      var a=li.querySelector('a');a.href=p.URL;a.textContent=tt.textContent;
+      li.querySelector('p').textContent=ex;
+      ul.appendChild(li);
+    });
+    var more=document.createElement('li');more.innerHTML='<a href="https://'+ul.dataset.site+'">Continue Reading &rarr;</a>';ul.appendChild(more);
+  }).catch(function(){ul.innerHTML='<li><a href="https://'+ul.dataset.site+'">Read the blog</a></li>'});
+});
+</script>

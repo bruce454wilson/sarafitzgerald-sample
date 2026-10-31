@@ -1,0 +1,1 @@
+<ul class="book-grid">{%- for b in include.books -%}<li><a href="{{ b.url }}"><img src="{{ b.cover }}" alt="Cover of {{ b.title }}" loading="lazy"><span class="bt">{{ b.title }}</span><span class="bs">{{ b.subtitle }}</span></a></li>{%- endfor -%}</ul>

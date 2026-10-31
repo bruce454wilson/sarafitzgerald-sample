@@ -1,0 +1,6 @@
+---
+layout: null
+---
+{% if site.sample %}User-agent: *
+Disallow: /{% else %}User-agent: *
+Allow: /{% endif %}

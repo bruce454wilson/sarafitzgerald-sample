@@ -1,0 +1,48 @@
+# Editing screens for Pages CMS (https://app.pagescms.org). Sara signs in with GitHub.
+media:
+  input: assets/images
+  output: /assets/images
+content:
+  - name: events
+    label: Events
+    type: file
+    path: _data/events.yml
+    format: yaml
+    list: true
+    fields:
+      - name: title
+        label: Event name
+        type: string
+      - name: url
+        label: Link (optional)
+        type: string
+      - name: date
+        label: Date (first day, used for sorting; events move to "Past" by themselves after this date)
+        type: date
+      - name: details
+        label: Details (shown exactly as typed)
+        type: text
+  - name: books
+    label: Book pages
+    type: collection
+    path: _books
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: order
+    fields:
+      - {name: title, label: Title, type: string}
+      - {name: subtitle, label: Subtitle, type: string}
+      - {name: cover, label: Cover image, type: image}
+      - {name: order, label: Position in book list, type: number}
+      - {name: body, label: Page text, type: rich-text}
+  - name: pages
+    label: Other pages
+    type: collection
+    path: _pages
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - {name: title, label: Title, type: string}
+      - {name: body, label: Page text, type: rich-text}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.page_title | default: page.title | default: site.title }}</title>
+{% if page.description %}<meta name="description" content="{{ page.description | escape }}">{% endif %}
+{% if site.sample %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body class="{{ page.layout }}">
+{% if site.sample %}<div class="sample-bar">Sample conversion for review &middot; not Sara Fitzgerald's live site</div>{% endif %}
+{% capture fixed %}{% include header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html %}{% endcapture %}
+{% assign hrefb = 'href="' | append: site.baseurl | append: '/' %}
+{% assign srcb = 'src="' | append: site.baseurl | append: '/' %}
+{{ fixed | replace: 'href="/', hrefb | replace: 'src="/', srcb }}
+</body>
+</html>

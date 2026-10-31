@@ -1,0 +1,9 @@
+- {title: Home, url: /}
+- title: My Books
+  url: /books
+  children: books
+- {title: "Essays, Podcasts, etc.", url: "/essays,-podcasts,-etc"}
+- {title: Events, url: /events-1}
+- {title: About Me, url: /about-me-1}
+- {title: Book Groups, url: /book-groups}
+- {title: Contact Me, url: /contact-me}

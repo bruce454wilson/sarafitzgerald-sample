@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="prose wrap">
+{{ content }}
+</article>
+<aside class="wrap more-books">
+  <h2 class="kicker">More books by Sara Fitzgerald</h2>
+  {% assign others = site.books | sort: 'order' | where_exp: "b", "b.url != page.url" %}
+  {% include book-grid.html books=others %}
+</aside>

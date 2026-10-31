@@ -1,0 +1,6 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <nav><ul>{% for item in site.data.nav %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}</ul></nav>
+    <p>Copyright &copy; {{ 'now' | date: '%Y' }} Sara Fitzgerald - All Rights Reserved.</p>
+  </div>
+</footer>
