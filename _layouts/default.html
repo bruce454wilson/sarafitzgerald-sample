@@ -20,5 +20,10 @@
 {% assign hrefb = 'href="' | append: site.baseurl | append: '/' %}
 {% assign srcb = 'src="' | append: site.baseurl | append: '/' %}
 {{ fixed | replace: 'href="/', hrefb | replace: 'src="/', srcb }}
+<script>
+// Menu is always open on wide screens; a tap-to-open menu on phones.
+(function(){var d=document.querySelector('details.menu'),mq=matchMedia('(min-width: 901px)');
+function set(){d.open=mq.matches}set();mq.addEventListener('change',set);})();
+</script>
 </body>
 </html>
